@@ -1,6 +1,7 @@
 class DosesController < ApplicationController
   before_action :set_cocktail, only: [:new, :create]
   before_action :set_dose, only: [:destroy]
+  before_action :check_author, only: [:new, :create, :destroy]
 
   def new
     @dose = @cocktail.doses.new
@@ -33,4 +34,9 @@ private
     @cocktail = Cocktail.find(params[:cocktail_id])
   end
 
+  def check_author
+    unless current_user == @cocktail.user
+      raise ActionController::RoutingError.new("You're not allowed here.")
+    end
+  end
 end

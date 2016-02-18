@@ -1,0 +1,7 @@
+<h2><%= @cocktail.name %></h2>
+<%= simple_form_for [@cocktail, @review] do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :content, label: 'Content' %>
+  <%= f.input :rating, label: 'Rating', input_html: { min: '0', max: '5'} %>
+  <%= f.button :submit %>
+<% end %>

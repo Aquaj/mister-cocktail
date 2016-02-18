@@ -14,4 +14,6 @@ Ingredient.create(name: "rum")
 Category.create(name: "Soiree")
 Category.create(name: "Party")
 Category.create(name: "Summer")
+Category.create(name: "Extreme")
+
 

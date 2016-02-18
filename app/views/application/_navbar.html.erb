@@ -11,8 +11,7 @@
     <% if user_signed_in? %>
 
       <%= link_to t(".top_call_to_action", default: "New Cocktail"), new_cocktail_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
-
-      <%= link_to t(".sign_in", default: "Log out"), logout_path, class: "navbar-wagon-item navbar-wagon-button btn"%>
+      <%= link_to t(".sign_out", default: "Log out"), logout_path, class: "navbar-wagon-item navbar-wagon-button btn"%>
 
     <% else %>
       <!-- Login text link -->

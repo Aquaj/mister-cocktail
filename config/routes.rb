@@ -24,9 +24,9 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   resources :cocktails, only: [:index, :show, :new, :create, :destroy] do
-    resources :doses, only: [:new, :create]
+    resources :doses, only: [:new, :create, :destroy]
+    resources :reviews, only: [:new, :create, :edit, :update, :destroy]
   end
-  resources :doses, only: [:destroy]
 
   # Example resource route with options:
   #   resources :products do

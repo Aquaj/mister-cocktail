@@ -1,0 +1,100 @@
+.back-link {
+  z-index: 2;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+
+#nolink {
+  .card-link {
+    cursor: initial;
+  }
+  .card-link:hover {
+    opacity:0;
+  }
+}
+
+.doses {
+  min-height: 50px;
+  padding: 5px;
+  display: flex;
+  margin: 5px;
+  width: 90%;
+  position: relative;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  align-content: space-between;
+  align-items: center;
+  flex-direction: column;
+
+  .dose {
+    display:flex;
+    flex-direction: column;
+    margin: 10px 15px;
+  }
+
+  .line {
+    content: "";
+    height: 5px;
+    width: 50%;
+    border-top: 1px solid;
+    border-color: black;
+    margin: 0 auto;
+
+    &:last-child {
+      border: 0;
+      margin: 0;
+    }
+  }
+}
+
+.show-link {
+  position: absolute;
+  bottom: 5px;
+  margin: 0;
+  padding: 0;
+  color: black;
+
+  &-left {
+    left:  10px;
+  }
+
+  &-right {
+    right: 10px;
+  }
+
+  &:hover {
+    color: grey;
+    text-decoration: none;
+  }
+}
+
+.reviews {
+  .review {
+    margin: 5px;
+    height: 125px;
+    position: relative;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+
+    .author {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    .rating {
+      position: absolute;
+      color: yellow;
+      top: 50px;
+      right: 10px;
+    }
+    .review-content {
+      position: absolute;
+      width: 65%;
+      top: 30px;
+      left: 10px;
+    }
+  }
+}

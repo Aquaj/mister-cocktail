@@ -1,17 +1,77 @@
-<%= link_to "Back", "/" %>
-
 <% content_for :title do %>
   <%= @cocktail.name %>
 <% end %>
 
-<h2><%= @cocktail.name %></h2>
-<ul>
-  <% @cocktail.doses.each do |review| %>
-    <li><%= review.description %> of <%= review.ingredient.name %></li>
-  <% end %>
-</ul>
+<div class="background">
 
-<% if current_user == @cocktail.user %>
-  <%= link_to "New dose", new_cocktail_dose_path(@cocktail) %>
-  <%= link_to "Delete cocktail", @cocktail, method: :delete %>
-<% end %>
+<div style="padding:0 15px">
+<div class="row">
+  <div class="col">
+    <div id="nolink" style="position: relative">
+    <%= render "card", :locals => {
+                                url: cocktail_path(@cocktail),
+                                image: image_url('category/'+@cocktail.category.name.downcase+'.jpg'),
+                                title: @cocktail.name,
+                                category: @cocktail.category.name,
+                                description: @cocktail.description
+                              } %>
+    <%= link_to "Back", "/", class: "back-link" %>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="doses">
+    <% if current_user == @cocktail.user %>
+        <%= link_to new_cocktail_dose_path(@cocktail), class: "show-link show-link-right" do %>
+          Add an ingredient <%= icon 'plus-square-o', style: "font-size: 14px" %>
+        <% end %>
+        <%= link_to @cocktail, method: :delete, class: "show-link show-link-left" do%>
+          Delete cocktail <%= icon 'times-circle-o', style: "font-size: 14px" %>
+        <% end %>
+    <% end %>
+    <% @cocktail.doses.each do |dose| %>
+      <div class="dose"><%= dose.description %> of <%= dose.ingredient.name %></div>
+      <div class="line"></div>
+    <% end %>
+  </div>
+
+  <div class="reviews">
+    <div class="row">
+      <% @cocktail.reviews.each do |review| %>
+        <div class="col-sm-6 col-md-4">
+          <div class="review">
+            <div class="author">
+              <%= review.user.name %>
+            </div>
+            <div class="review-content">
+              <%= review.content %>
+            </div>
+            <div class="rating">
+              <% (review.rating).times do %>
+                <%= icon("star") -%>
+              <% end %>
+              <% (5-review.rating).times do %>
+                <%= icon("star-o") -%>
+              <% end %>
+            </div>
+            <% if @cocktail.reviews.select { |r| r.user == current_user } %>
+              <%= link_to icon('pencil-square-o'), edit_cocktail_review_path(@cocktail, Review.where(user_id: current_user.id, cocktail_id: @cocktail.id).first), class: "show-link show-link-right" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="links">
+    <% if current_user == @cocktail.user %>
+      <% if !@cocktail.reviews.select { |r| r.user == current_user } %>
+        <%= link_to "Leave a review", new_cocktail_review_path(@cocktail) %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+</div>

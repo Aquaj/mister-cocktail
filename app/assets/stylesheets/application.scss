@@ -13,10 +13,16 @@
 @import "components/index";
 @import "pages/index";
 @import "vendor/index";
+@import "cocktails";
 
 .content {
+  flex: 1;
   width: 100%;
+  background-color: #DDD;
+}
+
+body {
   display: flex;
-  justify-content: center;
+  min-height: 100vh;
   flex-direction: column;
 }
