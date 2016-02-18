@@ -11,16 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160218091903) do
+ActiveRecord::Schema.define(version: 20160218141613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cocktails", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "cocktails", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.text     "description"
+    t.integer  "category_id"
+  end
+
+  add_index "cocktails", ["category_id"], name: "index_cocktails_on_category_id", using: :btree
+  add_index "cocktails", ["user_id"], name: "index_cocktails_on_user_id", using: :btree
 
   create_table "doses", force: :cascade do |t|
     t.integer  "cocktail_id"
@@ -39,6 +51,16 @@ ActiveRecord::Schema.define(version: 20160218091903) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_foreign_key "cocktails", "categories"
+  add_foreign_key "cocktails", "users"
   add_foreign_key "doses", "cocktails"
   add_foreign_key "doses", "ingredients"
 end

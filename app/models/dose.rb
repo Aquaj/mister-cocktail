@@ -3,7 +3,7 @@ class Dose < ActiveRecord::Base
   belongs_to :ingredient
 
   validates :description, presence: true
-  validates :cocktail, presence: true
-  validates :ingredient, presence: true
+  validates :cocktail_id, presence: true
+  validates :ingredient_id, presence: true
   validates :cocktail, uniqueness: { scope: :ingredient }
 end

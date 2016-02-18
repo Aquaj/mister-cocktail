@@ -1,0 +1,8 @@
+<%= simple_form_for @cocktail do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name, label: 'Name', error: 'You should provide a name.' %>
+  <%= f.input :category_id, collection: Category.all ,label_method: :name, value_method: :id,label: "Category" ,include_blank: false %>
+  <%= f.input :description, label: 'Description', error: 'You should provide a description.' %>
+  <%= f.button :submit %>
+<% end %>

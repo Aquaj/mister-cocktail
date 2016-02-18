@@ -1,0 +1,7 @@
+<h2><%= @cocktail.name %></h2>
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :description, label: 'Description' %>
+  <%= f.input :ingredient_id, collection: Ingredient.all, label_method: :name, value_method: :id, label: "Ingredient", include_blank: false %>
+  <%= f.button :submit %>
+<% end %>

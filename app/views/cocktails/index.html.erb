@@ -1,0 +1,22 @@
+<div class="cocktails">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="title"><h1>Cocktails</h1></div>
+      </div>
+    </div>
+    <div class="row">
+      <% @cocktails.each do |cocktail| %>
+        <div class="col-md-6">
+          <%= render "card", :locals => {
+                                          url: cocktail_path(cocktail),
+                                          image: image_url('category/'+cocktail.category.name.downcase+'.jpg'),
+                                          title: cocktail.name,
+                                          category: cocktail.category.name,
+                                          description: cocktail.description
+                                        } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
