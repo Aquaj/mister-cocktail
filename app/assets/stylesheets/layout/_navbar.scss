@@ -26,20 +26,20 @@
     width: 150px;
   }
 
-  &:after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: white;
-    opacity: 0;
-  }
+  // &:after {
+  //   content: "";
+  //   width: 100%;
+  //   height: 100%;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   background-color: white;
+  //   opacity: 0;
+  // }
 
-  &:hover:after {
-    opacity: 0.1;
-  }
+  // &:hover:after {
+  //   opacity: 0.1;
+  // }
 }
 
 /* Navbar right section (with form, links, button) */
