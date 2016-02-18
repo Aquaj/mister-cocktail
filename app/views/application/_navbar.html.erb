@@ -12,11 +12,11 @@
 
       <%= link_to t(".top_call_to_action", default: "New Cocktail"), new_cocktail_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
-      <%= link_to "Log out", logout_path, class: "navbar-wagon-item navbar-wagon-button btn"%>
+      <%= link_to t(".sign_in", default: "Log out"), logout_path, class: "navbar-wagon-item navbar-wagon-button btn"%>
 
     <% else %>
       <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Login"), login_path, class: "navbar-wagon-item navbar-wagon-link btn" %>
+      <%= link_to t(".sign_in", default: "Login"), login_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
     <% end %>
   </div>
