@@ -30,8 +30,11 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 
-# Use figaro
+# User image input
 gem 'figaro'
+gem 'cloudinary'
+gem 'attachinary'
+gem 'carrierwave'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'

@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
   def restrict_access
     unless user_signed_in?
-      raise ActionController::RoutingError.new("You're not allowed here.")
+      render html: "<strong>Not Found</strong>".html_safe
     end
   end
 

@@ -36,7 +36,7 @@ private
 
   def check_author
     unless current_user == @cocktail.user
-      raise ActionController::RoutingError.new("You're not allowed here.")
+      render html: "<strong>Not Found</strong>".html_safe
     end
   end
 end
