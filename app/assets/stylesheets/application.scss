@@ -19,6 +19,9 @@
   flex: 1;
   width: 100%;
   background-color: #DDD;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
 }
 
 body {
