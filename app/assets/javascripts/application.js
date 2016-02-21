@@ -14,4 +14,16 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require jquery.ui.all
+//= require jquery.fileupload
+//= require spin
+//= require ladda
+//= require ladda.jquery
+//= require cloudinary/jquery.cloudinary
+//= require attachinary
 //= require_tree .
+
+$(document).ready(function() {
+  $('.attachinary-input').attachinary();
+  Ladda.bind('.ladda-button');
+});

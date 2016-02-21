@@ -19,6 +19,7 @@ gem 'responders', '~> 2.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem "jquery-ui-rails", '~> 4.2.1'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -31,12 +32,13 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
+gem "ladda-rails"
+gem 'blueimp-file-upload-rails'
 
 # User image input
 gem 'figaro'
 gem 'cloudinary'
 gem 'attachinary'
-gem 'carrierwave'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
