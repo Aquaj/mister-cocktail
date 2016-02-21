@@ -8,6 +8,7 @@ class CocktailsController < ApplicationController
   end
 
   def show
+    @review = @cocktail.reviews.new()
   end
 
   def new

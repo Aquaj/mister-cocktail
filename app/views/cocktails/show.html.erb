@@ -38,11 +38,13 @@
 <div class="reviews">
   <div class="row">
     <% @cocktail.reviews.each do |review| %>
-      <%= render "review", locals: { review: review } %>
+      <% if review.content && review.content != "" %>
+        <%= render "cocktails/review", locals: { review: review } %>
+      <% end %>
     <% end %>
     <% if user_signed_in? %>
-      <% if (@cocktail.reviews.find { |r| r.user == current_user }.nil?) %>
-        <%= render "review_form", locals: { cocktail: @cocktail} %>
+      <% if (@cocktail.reviews.find { |r| r.user == current_user && r.content && r.content != "" }.nil?) %>
+        <%= render "cocktails/review_form", locals: { review: @review } %>
       <% end %>
     <% end %>
   </div>

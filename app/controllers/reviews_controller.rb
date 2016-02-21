@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to @cocktail
     else
-      render :new
+      render "cocktails/show"
     end
   end
 

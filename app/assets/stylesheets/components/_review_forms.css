@@ -1,4 +1,5 @@
 .review{
+
   .input-content{
     border: none;
     resize: none;
@@ -6,12 +7,16 @@
     width: 100%;
     padding: 0;
 
-
     &:focus{
       outline: none !important;
       box-shadow: none;
     }
   }
+
+  .review_content.has-error{
+      box-shadow: 0 0 10px rgba(#992222, 0.7);
+  }
+
 
   .input-validate{
     position: absolute;
@@ -24,9 +29,16 @@
     color: darken(yellow, 3%);
     top: 50px;
     right: 10px;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
+
+    .has-error {
+      color: darken(red, 15%);
+    }
+
+    .review_rating {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+    }
 
     input.with-font {
       border: 0;
