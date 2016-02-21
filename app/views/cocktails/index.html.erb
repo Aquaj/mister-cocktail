@@ -11,9 +11,9 @@
           <%= render "card", :locals => {
                                           url: cocktail_path(cocktail),
                                           image: image_url('category/'+cocktail.category.name.downcase+'.jpg'),
-                                          title: cocktail.name,
-                                          category: cocktail.category.name,
-                                          description: cocktail.description
+                                          title: cocktail.name.capitalize,
+                                          category: cocktail.category.name.capitalize,
+                                          description: cocktail.description.capitalize
                                         } %>
         </div>
       <% end %>

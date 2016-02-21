@@ -10,9 +10,9 @@
     <%= render "card", :locals => {
                                 url: cocktail_path(@cocktail),
                                 image: image_url('category/'+@cocktail.category.name.downcase+'.jpg'),
-                                title: @cocktail.name.upcase,
+                                title: @cocktail.name.capitalize,
                                 category: @cocktail.category.name,
-                                description: @cocktail.description.upcase
+                                description: @cocktail.description.capitalize
                               } %>
     <%= link_to "Back", "/", class: "back-link" %>
     </div>
