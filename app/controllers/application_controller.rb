@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def current_user
-    if session[:user_id] && session[:user_id] not in User.all.map(&:id)
+    if (session[:user_id] && !(User.all.map(&:id).find(session[:user_id])))
       session[:user_id] = nil
     end
     @current_user ||= User.find(session[:user_id]) if session[:user_id]

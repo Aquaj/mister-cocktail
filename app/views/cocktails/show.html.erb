@@ -30,7 +30,7 @@
       <% end %>
   <% end %>
   <% @cocktail.doses.each do |dose| %>
-    <div class="dose"><%= dose.description %> of <%= dose.ingredient.name %></div>
+    <div class="dose"><%= dose.description.capitalize %> of <%= dose.ingredient.name %></div>
     <div class="line"></div>
   <% end %>
 </div>
